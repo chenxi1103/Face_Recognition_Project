@@ -94,7 +94,7 @@ def evaluate(pred, label):
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32), name='accuracy')
     return correct_prediction, accuracy
 
-
+'''
 def train_cnn():
     x_test, y_test, x_train, y_train = facial_data.read()
 
@@ -147,8 +147,8 @@ def train_linear():
     model_saver = tf.train.Saver()
     model_saver.save(sess, LINEAR_PATH)
     print('Linear model trained completed.')
-
 '''
+
 # use linear model to predict
 def predict_linear(data):
     loaded_graph = tf.Graph()
@@ -183,7 +183,7 @@ def predict_cnn(data):
         emotions = sess.run(tf.argmax(logit, 1))
 
     return emotions
-'''
+
 
 def train(mode):
     x_test, y_test, x_train, y_train = facial_data.read()
@@ -239,6 +239,9 @@ def train(mode):
             print("Epoch: " + str(epoch + 1) + ", Test Loss= " + \
                   "{:.3f}".format(total_test_loss) + ", Test Accuracy= " + \
                   "{:.3f}".format(total_test_acc))
+    model_saver = tf.train.Saver()
+    model_saver.save(sess, LINEAR_PATH)
+    print('Model trained completed.')
 
 
 if __name__ == '__main__':
