@@ -1,59 +1,35 @@
 # Face_Recognition_Project
 Final Project for CMU 18794: Pattern Recognition Theory
 
-### If your opencv config files are missing, please download the files in opencv_config
+# 1 Introduction
+In this research, the approaches using Fisherfaces and Convolutional
+Neural Network (CNN) are proposed for recognizing gender, race and
+emotion based on detected facial images. The effectivity and performance
+of different algorithms are compared based on the real experiments. Finally,
+a demonstration and feedback learning system was designed and realized by
+web-based application development. The ultimate results verified that the
+proposed CNN approaches are effective solutions for multi-facial attributes
+recognition.
 
-### Nov 16th - Realized Gender discrimination by PCA + LDA
-- Training set: 227 Asian male and 227 Asian female images
-- The trained result is solved in "result" folder
-- Please run "LDA.py" to train or test the data
-- Select 5 male images and 5 female images and got 100% correctness:
-> please specify the gender: male / female: female
--1377.5256103991399
--93.71913671836175
-It's a female!
+# 2 Methodology
+Complete algorithm for multi-facial attributes can be divided into three parts:
+1. Face detection and extraction
+2. Training classification model by specific algorithms (PCA, LDA, CNN)
+and Testing accuracy by utilizing trained models
+3. Result demonstration realized by development of web application
 
-> please specify the gender: male / female: female
--1245.351779190247
-38.45469449053141
-It's a female!
+### 2.1 Face detection and extraction
+Before actually classifying the facial attributes, the precise facial landmark detection
+is essential for valid and effective result. Face detection is one of the
+most important tasks of any facial classification method system. Specifically, the
+main face detection methods can be classified into 4 categories: feature-based,
+appearance-based, knowledge-based, and template matching [1]. Among these
+four, appearance-based method has the best performance which can also be used
+for feature extraction for face recognition. The appearance-based model further
+divided into sub-methods like ‘Eigenface-based’, ‘Distribution-based’, ‘Neural
+Network’ and so on [2]. Practically, there are mainly two classifiers provided
+by OpenCV - “Haar Cascade Classifier” and “LBP Cascade Classifier”. Haar
+classifiers provides higher accuracy while LBP is computationally simpler and
+fast [3].Haar Cascade Classifier is more suitable in this case since the dataset is
+relatively small.
 
-> please specify the gender: male / female: female
--1444.5599810678975
--160.7535073871193
-It's a female!
-
-> please specify the gender: male / female: female
--1771.1596934406475
--487.3532197598689
-It's a female!
-
-> please specify the gender: male / female: female
--1359.3740015938079
--75.56752791302964
-It's a female!
-
-> please specify the gender: male / female: male
--43.86042709435211
-1239.9460465864263
-It's a male!
-
-> please specify the gender: male / female: male
-72.42611150953763
-1356.232585190316
-It's a male!
-
-> please specify the gender: male / female: male
-98.00233311783185
-1381.80880679861
-It's a male!
-
-> please specify the gender: male / female: male
-87.68744994014213
-1371.4939236209204
-It's a male!
-
-> please specify the gender: male / female: male
--141.9580531242755
-1141.8484205565028
-It's a male!
