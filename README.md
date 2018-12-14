@@ -77,10 +77,10 @@ For better demonstration of the results and further model optimization by expand
 The application also allows user to train the classiﬁers by providing feedback to classiﬁcation result. For example, if a user upload an image for gender classiﬁcation and the classiﬁcation result is “male”, he can give the feedback to indicate the result is correct by clicking the “correct” button. By doing this, this image would be stored in the male training data in the database for future training. If this result is not correct, the user can also click the “wrong” button to put this image in the female training data, which realized an actively and continuously learning by interacting with real users.
 
 The backend of the web application was developed by Django, a Python based web framework, which allows easy implementation with TensorFlow, Keras, and OpenCV because of the same programming language. PostgreSQL is selected to be the database for storing the potential training data. Finally, the application was deployed on the cloud server by using DigitalOcean as cloud platform, Gunicorn as WSGI HTTP Server, and Nginx as reverse proxy server. The general structure of this demonstration and feedback learning system is shown as follow:
-<img src="https://github.com/chenxi1103/Face_Recognition_Project/blob/master/images/Picture4.png">
+<p align='center'><img src="https://github.com/chenxi1103/Face_Recognition_Project/blob/master/images/Picture4.png"></p>
 <p align='center'>Figure 4: User Can Provide Feedback Based on Result to Help Better Improve the Models</p><br>
 
-<img src="https://github.com/chenxi1103/Face_Recognition_Project/blob/master/images/Picture5.png">
+<p align='center'><img src="https://github.com/chenxi1103/Face_Recognition_Project/blob/master/images/Picture5.png"></p>
 <p align='center'>Figure 5: Structure of Demonstration and Feedback Learning System</p>
 
 # 3 Experiment
