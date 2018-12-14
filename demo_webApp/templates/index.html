@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IntelliCat: Welcome</title>
+     {%  load static %}
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body>
+<!------ navigation bar------>
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="{% url 'index' %}">Introduction</a></li>
+    <li role="presentation"><a href="{% url 'gender' %}">Gender Classification</a></li>
+    <li role="presentation"><a href="{% url 'age' %}">Race Classification</a></li>
+    <li role="presentation"><a href="{% url 'emotions' %}">Emotion Classification</a></li>
+</ul>
+
+<!------- title  ----------->
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-lg-1">
+            &nbsp;
+        </div>
+        <div class="col-lg-11">
+            <h1 style="font-size: 75px;">Welcome to IntelliCat</h1>
+            <div class="col-lg-4">
+            <img src="{% static 'image/cat1.png' %}"></div>
+            <div class="col-lg-8">
+                <h2>&nbsp;</h2>
+                <h1 style="font-size: 50px">18794 Final Project:</h1>
+               <h3>Gender/Race/Emotions Classfication based on Pattern Recognition</h3>
+            <p>Based on Principal Component Analysis / Linear Discriminant Analysis / Convolution Neural Networks</p><br>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-------- Team Member -------->
+<div class="row">
+    <div class="col-lg-1">&nbsp;</div>
+    <div class="col-lg-10">
+        <h1>Team Members:</h1>
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="{% static 'image/bao.jpeg' %}" alt="Jiayue Bao">
+            <div class="caption">
+                <h3>Jiayue Bao</h3>
+                <p>Major: Electrial & Computer Engineering</p>
+                <p>Master Student in Carnegie Mellon University</p>
+                <p><a href="https://github.com/jiayuebao" class="btn btn-primary" role="button">GitHub</a> <a href="https://linkedin.com/in/jiayue-bao/" class="btn btn-default" role="button">LinkedIn</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="{% static 'image/li.jpeg' %}" alt="Chenxi Li">
+            <div class="caption">
+                <h3>Chenxi Li</h3>
+                <p>Major: Electrial & Computer Engineering</p>
+                <p>Master Student in Carnegie Mellon University</p>
+                <p><a href="https://github.com/chenxi1103" class="btn btn-primary" role="button">GitHub</a> <a href="https://www.linkedin.com/in/chenxi-deborah-li/" class="btn btn-default" role="button">LinkedIn</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="{% static 'image/chang.jpeg' %}\" alt="Lishang Chang">
+            <div class="caption">
+                <h3>Lishang Chang</h3>
+                <p>Major: Electrial & Computer Engineering</p>
+                <p>Master Student in Carnegie Mellon University</p>
+                <p><a href="https://github.com/changlishang" class="btn btn-primary" role="button">GitHub</a> <a href="https://www.linkedin.com/in/lishangchang" class="btn btn-default" role="button">LinkedIn</a></p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="col-lg-1">&nbsp;</div>
+</div>
+
+</body>
+</html>

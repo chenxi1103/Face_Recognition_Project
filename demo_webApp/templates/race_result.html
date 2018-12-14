@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IntelliCat: Emotion Classification</title>
+         {%  load static %}
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!---JS------->
+    <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
+    <script src="{% static 'js/liquidFillGauge.js' %}" language="JavaScript"></script>
+    <style>
+        .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<!------ navigation bar------>
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="{% url 'index' %}">Introduction</a></li>
+    <li role="presentation"><a href="{% url 'gender' %}">Gender Classification</a></li>
+    <li role="presentation"><a href="{% url 'age' %}">Race Classification</a></li>
+    <li role="presentation"><a href="{% url 'emotions' %}">Emotion Classification</a></li>
+</ul>
+<!------- title  ----------->
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-lg-1">
+            &nbsp;
+        </div>
+        <div class="col-lg-11">
+            <h1 style="font-size: 75px;">Welcome to IntelliCat</h1>
+            <div class="col-lg-4">
+                <img src="{% url 'photo' id=currPic.id %}" style="width: 400px;"></div>
+        {% if num == 1 %}
+        <table>
+            <tr>
+                <th>
+                    <h2 style="text-align: center">Caucasian:</h2>
+                    <svg id="fillgauge3"></svg>
+                </th>
+              </tr>
+              <tr>
+                <td>
+                    <h2 style="text-align: center">Asian:</h2>
+                    <svg id="fillgauge4"></svg>
+                </td>
+                <td>
+                    <h2 style="text-align: center">African:</h2>
+                    <svg id="fillgauge6"></svg>
+                </td>
+              </tr>
+        </table>
+        {% endif %}
+            {% if num != 0 %}
+                {% if num > 1 %}
+            <div class="col-lg-4">
+                <h2>&nbsp;</h2>
+                <h1 style="font-size: 50px">18794 Final Project:</h1>
+                <h3>&nbsp;Race Classfication based on CNN</h3>
+                <p>&nbsp;There are {{ num }} people detected :)</p>
+                <p>&nbsp;The result is: {{ race }}</p><br>
+                </p>
+            </div>
+            <div class="col-lg-2">
+                <img src="{% static 'image/ok.png' %}"></div>
+            </div>
+                    {% else %}
+                    <div class="col-lg-4">
+                <h2>&nbsp;</h2>
+                <h1 style="font-size: 50px">18794 Final Project:</h1>
+                <h3>&nbsp;Race Classfication based on CNN</h3>
+                <p>&nbsp;There is only 1 face detected. Here is your Race distribution show</p>
+                <p>&nbsp;The final result is: {{ race }}</p><br>
+                </p>
+            </div>
+            <div class="col-lg-2">
+                <img src="{% static 'image/ok.png' %}"></div>
+            </div>
+
+                    {% endif %}
+                {% else %}
+                <div class="col-lg-4">
+                <h2>&nbsp;</h2>
+                <h1 style="font-size: 50px">18794 Final Project:</h1>
+                <h3>&nbsp;Gender Classfication based on CNN</h3>
+                <p>&nbsp;Sorry! I didn't see any human face :(</p>
+                </p>
+            </div>
+            <div class="col-lg-2">
+                <img src="{% static 'image/cry.png' %}"></div>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+</div>
+
+<!------Vitualization-------->
+
+<script language="JavaScript">
+     var caucasian = {{ caucasian }};
+     var asian = {{ asian }};
+     var african = {{ african }};
+    var config1 = liquidFillGaugeDefaultSettings();
+    config1.circleColor = "#FF7777";
+    config1.textColor = "#FF4444";
+    config1.waveTextColor = "#FFAAAA";
+    config1.waveColor = "#FFDDDD";
+    config1.circleThickness = 0.1;
+    config1.waveAnimateTime = 1000;
+    var config2 = liquidFillGaugeDefaultSettings();
+    config2.circleColor = "#D4AB6A";
+    config2.textColor = "#553300";
+    config2.waveTextColor = "#805615";
+    config2.waveColor = "#AA7D39";
+    config2.circleThickness = 0.2;
+    config2.circleFillGap = 0.2;
+    config2.waveAnimateTime = 1000;
+    config2.waveHeight = 0.3;
+    config2.waveCount = 1;
+    var gauge3 = loadLiquidFillGauge("fillgauge3", caucasian, config2);
+    var config3 = liquidFillGaugeDefaultSettings();
+    config3.waveAnimateTime = 1000;
+    config3.waveHeight = 0.15;
+    config3.waveAnimate = true;
+    config3.waveOffset = 0.25;
+    config3.valueCountUp = false;
+    config3.displayPercent = false;
+    var gauge4 = loadLiquidFillGauge("fillgauge4", asian, config3);
+    var config4 = liquidFillGaugeDefaultSettings();
+    config4.circleThickness = 0.15;
+    config4.circleColor = "#808015";
+    config4.textColor = "#555500";
+    config4.waveTextColor = "#FFFFAA";
+    config4.waveColor = "#AAAA39";
+    config4.waveAnimateTime = 1000;
+    config4.waveHeight = 0.05;
+    config4.waveAnimate = true;
+    config4.waveRise = false;
+    config4.waveHeightScaling = false;
+    config4.waveOffset = 0.25;
+    config4.textSize = 0.75;
+    config4.waveCount = 3;
+    var config5 = liquidFillGaugeDefaultSettings();
+    config5.circleThickness = 0.4;
+    config5.circleColor = "#6DA398";
+    config5.textColor = "#0E5144";
+    config5.waveTextColor = "#6DA398";
+    config5.waveColor = "#246D5F";
+    config5.circleThickness = 0.2;
+    config5.circleFillGap = 0.2;
+    config5.waveAnimateTime = 1000;
+    config5.waveHeight = 0.3;
+    config5.waveCount = 1;
+    var gauge6 = loadLiquidFillGauge("fillgauge6", african, config5);
+</script>
+</body>
+</html>

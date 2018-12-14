@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IntelliCat: Gender Classification</title>
+         {%  load static %}
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body>
+<!------ navigation bar------>
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="{% url 'index' %}">Introduction</a></li>
+    <li role="presentation"><a href="{% url 'gender' %}">Gender Classification</a></li>
+    <li role="presentation"><a href="{% url 'age' %}">Race Classification</a></li>
+    <li role="presentation"><a href="{% url 'emotions' %}">Emotion Classification</a></li>
+</ul>
+<!------- title  ----------->
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-lg-1">
+            &nbsp;
+        </div>
+        <div class="col-lg-11">
+            <h1 style="font-size: 75px;">Welcome to IntelliCat</h1>
+            <div class="col-lg-4">
+                <img src="{% url 'photo' id=currPic.id %}" style="width: 400px;"></div>
+            {% if num != 0 %}
+                {% if num > 1 %}
+            <div class="col-lg-4">
+                <h2>&nbsp;</h2>
+                <h1 style="font-size: 50px">18794 Final Project:</h1>
+                <h3>&nbsp;Gender Classfication based on CNN</h3>
+                <p>&nbsp;There are {{ num }} people detected :)</p>
+                <p>&nbsp;The result is: {{ genders }}</p><br>
+                </p>
+            </div>
+            <div class="col-lg-2">
+                <img src="{% static 'image/ok.png' %}"></div>
+            </div>
+                    {% else %}
+                    <div class="col-lg-4">
+                <h2>&nbsp;</h2>
+                <h1 style="font-size: 50px">18794 Final Project:</h1>
+                <h3>&nbsp;Gender Classfication based on CNN</h3>
+                <p>&nbsp;As there is only 1 face detected. This might help me to learn classification better!</p>
+                <p>&nbsp;The result is: {{ genders }}</p><br>
+                        <p>May I ask you that my answer is correct or wrong?</p>
+                        {% if genders == 'Male' %}
+                        <a href="{% url 'add_data' gender='Male' flag='T' id=currPic.id %}"><button class="btn btn-primary btn-lg btn-success">Correct!</button></a>
+                        <a href="{% url 'add_data' gender='Male' flag='F' id=currPic.id %}"><button class="btn btn-primary btn-lg btn-danger">Wrong!</button></a>
+                            {% else %}
+                            <a href="{% url 'add_data' gender='Female' flag='T' id=currPic.id %}"><button class="btn btn-primary btn-lg btn-success">Correct!</button></a>
+                        <a href="{% url 'add_data' gender='Female' flag='F' id=currPic.id %}"><button class="btn btn-primary btn-lg btn-danger">Wrong!</button></a>
+                            {% endif %}
+                </p>
+            </div>
+            <div class="col-lg-2">
+                <img src="{% static 'image/ok.png' %}"></div>
+            </div>
+
+                    {% endif %}
+                {% else %}
+                <div class="col-lg-4">
+                <h2>&nbsp;</h2>
+                <h1 style="font-size: 50px">18794 Final Project:</h1>
+                <h3>&nbsp;Gender Classfication based on CNN</h3>
+                <p>&nbsp;Sorry! I didn't see any human face :(</p>
+                </p>
+            </div>
+            <div class="col-lg-2">
+                <img src="{% static 'image/cry.png' %}"></div>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

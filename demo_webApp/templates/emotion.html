@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IntelliCat: Emotions Classification</title>
+         {%  load static %}
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body>
+<!------ navigation bar------>
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="{% url 'index' %}">Introduction</a></li>
+    <li role="presentation"><a href="{% url 'gender' %}">Gender Classification</a></li>
+    <li role="presentation"><a href="{% url 'age' %}">Race Classification</a></li>
+    <li role="presentation"><a href="{% url 'emotions' %}">Emotion Classification</a></li>
+</ul>
+<!------- title  ----------->
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-lg-1">
+            &nbsp;
+        </div>
+        <div class="col-lg-11">
+            <h1 style="font-size: 75px;">Welcome to IntelliCat</h1>
+            <div class="col-lg-4">
+                <img src="{% static 'image/emotionguess.png' %}"></div>
+            <div class="col-lg-8">
+                <h2>&nbsp;</h2>
+                <h1 style="font-size: 50px">18794 Final Project:</h1>
+                <h3>&nbsp;Emotions Classfication based on CNN</h3>
+                <p>&nbsp;Please upload a picture let me guess your Emotions :)</p><br>
+                <form enctype="multipart/form-data" method="post" action="{% url 'emotion_guess' %}">
+                    {% csrf_token %}
+                <label for = "photo" class="w3-text"><b>Upload Image</b></label>
+                <input class="w3-input w3-border" name="photo" id = "photo" type="file" ></p>
+                    <button class="btn btn-primary btn-lg">Submit!</button>
+                     <input type="hidden" name="next" value="{{ next }}" />
+                </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

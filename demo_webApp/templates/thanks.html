@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IntelliCat: Thank you!</title>
+     {%  load static %}
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body>
+<!------ navigation bar------>
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="{% url 'index' %}">Introduction</a></li>
+    <li role="presentation"><a href="{% url 'gender' %}">Gender Classification</a></li>
+    <li role="presentation"><a href="{% url 'age' %}">Race Classification</a></li>
+    <li role="presentation"><a href="{% url 'emotions' %}">Emotion Classification</a></li>
+</ul>
+
+<!------- title  ----------->
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-lg-1">
+            &nbsp;
+        </div>
+        <div class="col-lg-11">
+            <h1 style="font-size: 75px;">Welcome to IntelliCat</h1>
+            <div class="col-lg-4">
+                {% if flag == 'T' %}
+            <img src="{% static 'image/thanks.png' %}"></div>
+            <div class="col-lg-8">
+                <h2>&nbsp;</h2>
+                <h1 style="font-size: 50px">18794 Final Project:</h1>
+               <h3>Gender/Age/Emotions Classfication based on Pattern Recognition</h3>
+            <p>I am so happy to get the right answer! You helped me to learn better! Thank you!</p><br>
+            </div>
+            {% else %}
+                    <img src="{% static 'image/sorry.png' %}"></div>
+            <div class="col-lg-8">
+                <h2>&nbsp;</h2>
+                <h1 style="font-size: 50px">18794 Final Project:</h1>
+               <h3>Gender/Age/Emotions Classfication based on Pattern Recognition</h3>
+            <p>So sorry I was wrong :( But I will try my best to become better! Thank you for teaching me!</p><br>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
