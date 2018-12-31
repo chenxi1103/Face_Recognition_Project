@@ -1,7 +1,7 @@
 # Facial Multi-Attribute Detection based on CNN and PCA/LDA
 Chenxi Li Electrical & Computer Eng.Dept, Carnegie Mellon University Pittsburgh, PA 15213 chenxili@andrew.cmu.edu
 Jiayue Bao Electrical & Computer Eng.Dept, Carnegie Mellon University Pittsburgh, PA 15213 jiayueb@andrew.cmu.edu
-Lishang Chang Electrical & Computer Eng.Dept, Carnegie Mellon University Pittsburgh, PA 15213 lishangc@andrew.cmu.edu
+
 # Abstract
 In this research, the approaches using Fisherfaces and Convolutional
 Neural Network (CNN) are proposed for recognizing gender, race and
